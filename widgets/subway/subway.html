@@ -4,15 +4,23 @@
       <table>
         <tr>
           <td>
-            <span class="sub-time" data-bind="item.in.values"></span>
-            <span class="direction" data-bind="item.in.name"></span>
+            <span class="sub-time" data-bind="item.in1.values"></span>
+            <span class="direction" data-bind="item.in1.name"></span>
+          </td>
+	  <td>
+            <span class="sub-time" data-bind="item.in2.values"></span>
+            <span class="direction" data-bind="item.in2.name"></span>
           </td>
           <td>
             <img class="icon" data-bind-src="item.icon | prepend 'https://www.ratp.fr/sites/default/files/network/'"/>
           </td>
           <td>
-            <span class="sub-time" data-bind="item.out.values"></span>
-            <span class="direction" data-bind="item.out.name"></span>
+            <span class="sub-time" data-bind="item.out1.values"></span>
+            <span class="direction" data-bind="item.out1.name"></span>
+          </td>
+          <td>
+            <span class="sub-time" data-bind="item.out2.values"></span>
+            <span class="direction" data-bind="item.out2.name"></span>
           </td>
         </tr>
       </table>
