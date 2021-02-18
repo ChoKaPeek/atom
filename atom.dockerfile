@@ -1,4 +1,4 @@
-FROM ruby:2.3.7-alpine
+FROM ruby:2.5.0-alpine
 MAINTAINER Yohann Leon <yohann@leon.re>
 
 WORKDIR /usr/atom
