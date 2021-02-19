@@ -1,0 +1,40 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #272b35;
+
+$price-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-text styles
+// ----------------------------------------------------------------------------
+.widget-finance {
+
+  background-color: $background-color;
+
+  .logo {
+    position: relative; /* Declared position allows for location changes */
+    top: -20px; /* Moves the image 2px closer to the top of the page */
+  }
+
+  .change {
+    color: $moreinfo-color;
+  }
+
+  .long_name {
+    color: $moreinfo-color;
+  }
+
+  .price {
+    color: $price-color;
+    font-size: 3em;
+    position: relative;
+    font-weight: 300;
+  }
+  .quote {
+    font-size: 3em;
+    position: relative;
+    font-weight: 300;
+  }
+}
