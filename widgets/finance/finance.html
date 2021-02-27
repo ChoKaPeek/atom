@@ -1,24 +1,16 @@
 <table>
   <tr>
-    <td>
-      <span class="quote" data-bind="finance.quote"></span>
-    </td>
-    <td>
-      <span class="long_name" data-bind="finance.long_name"></span>
-    </td>
+    <img src="assets/finance/finance.png" class="logo" alt="">
   </tr>
   <tr>
-    <td>
-      <img src="assets/finance/finance.png" class="logo" alt="" style="height: 150px;">
-    </td>
+    <span class="price" data-bind="formatted_price | append prefix"></span>
+    <span class="change" data-bind="formatted_change" data-bind-class="color"></span>
   </tr>
+  <!--
   <tr>
-    <td>
-      <span class="price" data-bind="finance.price"></span>
-    </td>
-    <td>
-      <span class="change" data-bind="finance.change"></span>
-    </td>
+    <span class="quote_name" data-bind="quote"></span>
+    <span class="long_name" data-bind="long_name"></span>
   </tr>
+  -->
 </table>
 

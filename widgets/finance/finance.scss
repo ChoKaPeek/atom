@@ -4,7 +4,10 @@
 $background-color:  #272b35;
 
 $price-color:       rgba(255, 255, 255, 0.7);
-$moreinfo-color:    rgba(255, 255, 255, 0.7);
+$info-color:    rgba(255, 255, 255, 0.4);
+
+$negative-color: #eb0f29;
+$positive-color: #00873c;
 
 // ----------------------------------------------------------------------------
 // Widget-text styles
@@ -14,27 +17,41 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
   background-color: $background-color;
 
   .logo {
+    max-width: 80%;
+    display: block;
+    margin-left: auto; /* center */
+    margin-right: auto; /* center */
     position: relative; /* Declared position allows for location changes */
-    top: -20px; /* Moves the image 2px closer to the top of the page */
-  }
-
-  .change {
-    color: $moreinfo-color;
-  }
-
-  .long_name {
-    color: $moreinfo-color;
+    top: -20px; /* Moves the image closer to the top of the page */
   }
 
   .price {
     color: $price-color;
     font-size: 3em;
-    position: relative;
+  }
+  .change {
+    font-size: 2em;
+  }
+  .price, .change {
     font-weight: 300;
   }
-  .quote {
-    font-size: 3em;
+
+  .positive {
+    color: $positive-color;
+  }
+  .negative {
+    color: $negative-color;
+  }
+
+  .quote_name {
+    font-size: 2em;
+  }
+  .long_name {
+    font-size: 1.5em;
+  }
+  .quote_name .long_name {
+    color: $info-color;
     position: relative;
-    font-weight: 300;
+    font-weight: 500;
   }
 }

@@ -4,7 +4,7 @@ require 'uri'
 
 quote = "HO.PA" # Thales
 
-SCHEDULER.every '5m', allow_overlapping: false do
+SCHEDULER.every '5m', first_in: 0 do
   uri = URI.parse("https://finance.yahoo.com/quote/#{quote}?p=#{quote}&.tsrc=fin-srch")
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
@@ -16,5 +16,6 @@ SCHEDULER.every '5m', allow_overlapping: false do
   long_name = dict["longName"]
   change = dict["regularMarketChange"]["fmt"]
   price = dict["regularMarketPrice"]["fmt"]
-  send_event('finance', {quote, long_name, change, price})
+  color = change[0] == "-" ? "negative" : "positive"
+  send_event('finance', {quote: quote, long_name: long_name, change: change, price: price, color: color})
 end
