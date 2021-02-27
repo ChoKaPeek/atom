@@ -28,9 +28,9 @@ def get_next(type, path)
 end
 
 SCHEDULER.every '1m', first_in: 0 do |job|
-    time = Time.new
+    time = Time.now
     if 0 < time.hour && time.hour < 5
-        noct1 = get_next('noctiliens', 'n21/rue+des+jardins/A+R')
+        noct1 = get_next('noctiliens', '21/rue+des+jardins/A+R')
         lines = [
             {
                 name: "Noct. 21",
