@@ -1,77 +1,55 @@
 <script type='text/javascript'>
  $(function() {
-   Dashing.widget_base_dimensions = [360, 340]
-   Dashing.numColumns = 5
+   Dashing.widget_base_dimensions = [180, 170]
+   Dashing.numColumns = 10
+   Dashing.numRows = 6
  });
  </script>
 
 <% content_for :title do %>Dashboard<% end %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
       <div data-view="Clock"></div>
     </li>
 
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
       <div data-view="Weather" data-id="weather"></div>
     </li>
  
-    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="5" data-sizex="2" data-sizey="2">
       <div data-view="Pihole" data-id="pihole" data-unordered="true" data-title="Pi-Hole AdBlocking"></div>
     </li>
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="7" data-sizex="2" data-sizey="2">
       <div data-view="Meter" data-id="pihole-meter" data-title="Ads Percent Today" data-min="0" data-max="100" data-suffix="%"></div>
     </li>
 
-    <li data-row="2" data-col="4" data-sizex="2" data-sizey="1">
-      <div data-view="News" data-id="news"></div>
+    <li data-row="1" data-col="9" data-sizex="1" data-sizey="1">
+      <div data-id="btcprice" data-view="Price" data-image="assets/btcprice/bitcoin.png" data-prefix="€"></div>
     </li>
 
-    <li data-row="2" data-col="1" data-sizex="3" data-sizey="1">
+    <li data-row="1" data-col="10" data-sizex="1" data-sizey="1">
+      <div data-id="ethprice" data-view="Price" data-image="assets/ethprice/ethereum.png" data-prefix="€"></div>
+    </li>
+
+    <li data-row="2" data-col="9" data-sizex="2" data-sizey="1">
+      <div data-view="Finance" data-id="finance" data-image="assets/finance/finance.png" data-prefix="€"></div>
+    </li>
+
+    <li data-row="3" data-col="1" data-sizex="6" data-sizey="2">
         <div data-view="Subway" data-id="subway"></div>
     </li>
 
-    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
-      <div data-id="btcprice" data-view="Btcprice" data-btcprice="" data-prefix="€"></div>
+    <li data-row="3" data-col="7" data-sizex="4" data-sizey="2">
+      <div data-view="News" data-id="news"></div>
     </li>
 
-    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="ethprice" data-view="Ethprice" data-ethprice="" data-prefix="€"></div>
-    </li>
-
-    <li data-row="3" data-col="2" data-sizex="3" data-sizey="1">
+    <li data-row="5" data-col="1" data-sizex="6" data-sizey="2">
       <div data-view="WorldClock" class="widget widget-world-clock"></div>
     </li>
 
-    <li data-row="3" data-col="5" data-sizex="1" data-sizey="1">
-      <div data-view="Finance" data-id="finance" data-prefix="€"></div>
+    <li data-row="5" data-col="7" data-sizex="4" data-sizey="2">
+      <div data-view="Youtube" data-id="youtube" data-title="Newest Videos"></div>
     </li>
-
-    <!--
-    <li data-row="1" data-col="3" data-sizex="2" data-sizey="1">
-      <div data-view="Airparif" data-id="airparif"></div>
-    </li>
-
-    <li data-row="2" data-col="3" data-sizex="2" data-sizey="2">
-      <div data-view="DailyXKCD" data-id="xkcd-of-the-day"></div>
-    </li>
-
-    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
-      <div data-id="btcprice" data-view="Btcprice" data-btcprice="" data-prefix="€"></div>
-    </li>
-
-    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
-      <div data-id="ethprice" data-view="Ethprice" data-ethprice="" data-prefix="€"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="4" data-sizey="1">
-      <div data-view="WorldClock" class="widget widget-world-clock"></div>
-    </li>
-
-    <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
-      <div data-id="epiquote" data-view="Epiquote"></div>
-    </li>
-    -->
-
   </ul>
 </div>

@@ -1,16 +1,10 @@
 <table>
   <tr>
-    <img src="assets/finance/finance.png" class="logo" alt="">
+    <img data-bind-src="image" class="logo">
   </tr>
   <tr>
     <span class="price" data-bind="formatted_price | append prefix"></span>
     <span class="change" data-bind="formatted_change" data-bind-class="color"></span>
   </tr>
-  <!--
-  <tr>
-    <span class="quote_name" data-bind="quote"></span>
-    <span class="long_name" data-bind="long_name"></span>
-  </tr>
-  -->
 </table>
 

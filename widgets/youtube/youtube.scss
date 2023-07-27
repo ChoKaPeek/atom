@@ -1,0 +1,53 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #272b35;
+
+$vlow-color:        #79BC6A;
+$low-color:         #BBCF4C;
+$medium-color:      #EEC20B;
+$high-color:        #F29305;
+$vhigh-color:       #960018;
+
+// ----------------------------------------------------------------------------
+// Widget-youtube styles
+// ----------------------------------------------------------------------------
+.widget-youtube {
+    background-color: $background-color;
+
+    #todayLine {
+        color: #ffffff;
+        font-weight: 300;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    #todayIndex {
+        font-size: 30px;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    img {
+        width: 120px;
+        height: 90px;
+        margin-right: 10px;
+    }
+}

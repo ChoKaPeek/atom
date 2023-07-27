@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'uri'
 
-SCHEDULER.every '1m', allow_overlapping: false do
+SCHEDULER.every '1m', :first_in => 0, allow_overlapping: false do
   uri = URI.parse('https://api.coinbase.com/v2/prices/BTC-EUR/spot')
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true

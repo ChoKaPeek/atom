@@ -26,7 +26,7 @@ class BbcNews
   
   @BBC_News = BbcNews.new()
   
-  SCHEDULER.every '15m', :first_in => 0 do |job|
+  SCHEDULER.every '15m', :first_in => 0 do
     headlines = @BBC_News.latest_headlines
        send_event('news', { :headlines => headlines})
   end

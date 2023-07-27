@@ -22,12 +22,12 @@ $positive-color: #00873c;
     margin-left: auto; /* center */
     margin-right: auto; /* center */
     position: relative; /* Declared position allows for location changes */
-    top: -20px; /* Moves the image closer to the top of the page */
+    top: -0.1em; /* Moves the image closer to the top of the page */
   }
 
   .price {
     color: $price-color;
-    font-size: 3em;
+    font-size: 2.5em;
   }
   .change {
     font-size: 2em;
