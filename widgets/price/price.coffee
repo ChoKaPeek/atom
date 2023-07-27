@@ -1,5 +1,5 @@
-class Dashing.Ethprice extends Dashing.Widget
+class Dashing.Price extends Dashing.Widget
   @accessor 'value', Dashing.AnimatedValue
-  @accessor 'ethprice', ->
+  @accessor 'price', ->
     if @get('value')
       price = parseFloat(@get('value'))

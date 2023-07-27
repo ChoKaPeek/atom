@@ -1,9 +1,0 @@
-pipeline:
-  deploy:
-    image: plugins/docker
-    repo: obynio/atom
-    tags: latest
-    dockerfile: atom.dockerfile
-    secrets: [ docker_username, docker_password ]
-    when:
-      event: [ push ]

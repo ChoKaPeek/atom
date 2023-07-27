@@ -33,8 +33,3 @@ SCHEDULER.every '1h', first_in: 0 do
              jour: jour,
              demain: demain)
 end
-
-def fetch_data(path)
-  response = Net::HTTP.get_response(URI(path))
-  JSON.parse(response.body)
-end

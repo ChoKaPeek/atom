@@ -14,5 +14,4 @@ RUN bundle
 ENV PORT 3030
 EXPOSE $PORT
 
-ENTRYPOINT ["smashing"]
-CMD ["start", "-p", "$PORT", "-e", "production"]
+ENTRYPOINT ["bash"]
