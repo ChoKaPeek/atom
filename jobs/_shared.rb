@@ -2,10 +2,16 @@ require 'json'
 require 'net/http'
 require 'uri'
 
+def dump(data)
+  puts data.inspect
+end
+
 def fetch_data(path, headers = {})
-  response = Net::HTTP.get_response(URI(path))
+  response = Net::HTTP.get_response(URI(path), headers)
   puts path
-  raise response.body
+  if response.code != '200'
+    raise response.body
+  end
   return JSON.parse(response.body)
 end
 

@@ -1,17 +1,21 @@
-
 <img class="image" data-bind-src="image" />
+<img class="image overlay" data-bind-src="overlay" />
 
-<div id="todayLine">
-	Pollution : <span id="todayIndex" data-bind="jour.indice" />
+<div class="text">
+        <div id="todayLine">
+                Niveau de pollution : <span id="todayIndex" data-bind="jour.indice" />
+        </div>
+        <div id="tomorrowLine">
+                (Demain : <span id="tomorrowIndex" data-bind="demain.indice"/>)
+        </div>
+        <table>
+                <tr>
+                        <td>Dioxyde d'azote : <span data-bind="jour.no2"/></td>
+                        <td>Ozone : <span data-bind="jour.o3"/></td>
+                </tr>
+                <tr>
+                        <td>Particules : <span data-bind="jour.pm10"/></td>
+                        <td>Particules fines : <span data-bind="jour.pm25"/></td>
+                </tr>
+        </table>
 </div>
-<div id="tomorrowLine">
-	(Demain : <span id="tomorrowIndex" data-bind="demain.indice"/>
-</div>
-<table>
-  <tr>
-    <td>Dioxyde d'azote : <span data-bind="jour.no2"/><td>
-    <td>Ozone : <span data-bind="jour.o3"/><td>
-    <td>Particules : <span data-bind="jour.pm10"/><td>
-    <td>Particules fines : <span data-bind="jour.pm25"/><td>
-  </tr>
-</table>
