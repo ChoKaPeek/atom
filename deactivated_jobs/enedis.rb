@@ -1,6 +1,9 @@
+require 'mini_magick'
 require 'sinatra'
 require 'erb'
 
+endpoint_token_url = "https://gw.hml.api.enedis.fr/v1/oauth2/token"
+metering_data_base_url = "https://gw.hml.api.enedis.fr"
 TWITCH='https://api.twitch.tv/helix'
 FOLLOWS=TWITCH+'/channels/followed'
 
@@ -17,9 +20,9 @@ get '/chokapeek/callback' do
   redirect '/chokapeek'
 end
 
-get '/chokapeek/twitch' do
-  redirect "https://id.twitch.tv/oauth2/authorize" +
-    "?client_id=#{ENV['TWITCH_CLIENT_ID']}" +
+get '/chokapeek/enedis' do
+  redirect "https://gw.hml.api.enedis.fr/group/espace-particuliers/consentement-linky/oauth2/authorize" +
+    "?client_id=#{ENV['ENEDIS_CLIENT_ID']}" +
     "&redirect_uri=#{ERB::Util.url_encode('http://localhost:3030/chokapeek/callback')}" +
     "&response_type=token" +
     "&scope=user%3Aread%3Afollows"
