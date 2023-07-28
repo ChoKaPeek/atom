@@ -5,7 +5,7 @@ placeholder = '/assets/nyantocat.gif'
 
 SCHEDULER.every '1m', first_in: 0 do |job|
   image = placeholder
-  json = fetch_data("www.reddit.com/#{ENV['SUBREDDIT']}.json")
+  json = fetch_data("https://www.reddit.com/#{ENV['SUBREDDIT']}.json", { "User-Agent" => "Atom 0.1" })
 
   if json['data']['children'].count > 0
     urls = json['data']['children'].map{|child| child['data']['url'] }
