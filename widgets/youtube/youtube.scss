@@ -8,6 +8,7 @@ $low-color:         #BBCF4C;
 $medium-color:      #EEC20B;
 $high-color:        #F29305;
 $vhigh-color:       #960018;
+$title-color:       rgba(255, 255, 255, 0.7);
 
 // ----------------------------------------------------------------------------
 // Widget-youtube styles
@@ -15,21 +16,17 @@ $vhigh-color:       #960018;
 .widget-youtube {
     background-color: $background-color;
 
-    #todayLine {
-        color: #ffffff;
-        font-weight: 300;
-        font-size: 20px;
-        margin-top: 30px;
-    }
-
-    #todayIndex {
-        font-size: 30px;
-        padding-left: 3px;
-        padding-right: 3px;
+    .title {
+        color: $title-color;
     }
 
     h1 {
         text-align: center;
+    }
+
+    title {
+        font-size: small;
+        font-weight: 400;
     }
 
     ul {
