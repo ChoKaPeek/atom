@@ -37,23 +37,25 @@ def checkin()
     }
 
     info = fetch_data(hl_path("info", game), headers)
-    
+
     # Not checked in today
     if (!info['data']["is_sign"])
       # not a robot
       sleep((Random.new).rand(3.0..9.0))
 
-      signed = post_data(hl_path("sign", game), { "act_id" => game[:act_id] }, headers)
-      dump(signed)
+      signed = post_data(hl_path("sign", game), { "act_id" => game[:act_id], "lang" => "en-us" }, headers)
+      if (signed['retcode'] != 0 && signed['retcode'] != -5003) # already checked in
+        dump(signed) # unknown error
+      end
     end
 
     home = fetch_data(hl_path("home", game))
-      
+
     reward = home['data']['awards'][info['data']["total_sign_day"]]
     if (reward)
-      items << { 
+      items << {
         title: game[:name],
-        message: "#{reward['cnt']} x #{reward['name']}",
+        message: "#{reward['cnt']}x #{reward['name']}",
         arrow: "icon-ok-sign",
         color: "green"
       }
@@ -64,7 +66,7 @@ def checkin()
         arrow: "icon-warning-sign",
         color: "red"
       }
-    end 
+    end
   end
   send_event('hoyolab', items: items)
 end

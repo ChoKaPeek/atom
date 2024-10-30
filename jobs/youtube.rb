@@ -7,7 +7,7 @@ PLAYS=BASE+'/playlistItems'
 VIDS=BASE+'/videos'
 
 SUFFIX="&maxResults=50&key=#{ENV['GOOGLE_KEY']}"
-SUFFIX_5="&maxResults=3&key=#{ENV['GOOGLE_KEY']}"
+SUFFIX_3="&maxResults=3&key=#{ENV['GOOGLE_KEY']}"
 
 $yt_access_token = ""
 
@@ -17,7 +17,7 @@ SCHEDULER.every '10h', mutex: 'playlist0' do
   $playlists = get_playlists()
 end
 
-SCHEDULER.every '10m', mutex: 'playlist0' do
+SCHEDULER.every '30m', mutex: 'playlist0' do
   next if $yt_access_token == ""
   send_videos($playlists)
 end
@@ -72,7 +72,7 @@ def send_videos(playlists)
 
   puts playlists
   return if playlists.empty?
-  
+
   playlists.each do |p|
     data = fetch_yt("#{PLAYS}?part=contentDetails&playlistId=#{p}#{SUFFIX_3}")
     data['items'].each do |i|

@@ -4,6 +4,7 @@ require 'uri'
 
 def dump(data)
   puts data.inspect
+  $stdout.flush
 end
 
 def fetch_data(path, headers = {})
@@ -15,8 +16,8 @@ def fetch_data(path, headers = {})
   return JSON.parse(response.body)
 end
 
-def post_data(path, params = {})
-  response = Net::HTTP.post_form(URI(path), params, headers)
+def post_data_form(path)
+  response = Net::HTTP.post_form(URI(path), {})
   puts path
   if response.code != '200'
     raise response.body
@@ -25,20 +26,17 @@ def post_data(path, params = {})
 end
 
 def post_data(path, params, headers)
-  # URL for the POST request
-  url = URI(path)
   puts path
+  # URL for the POST request
+  url = URI.parse(path)
+
+  headers['Content-Type'] = 'application/json'
 
   # Create a new Net::HTTP::Post request
-  request = Net::HTTP::Post.new(url.path)
+  request = Net::HTTP::Post.new(url.request_uri, headers)
 
-  # Set the headers for the request
-  headers.each do |header, value|
-    request.add_field(header, value)
-  end
-
-  # Encode the data in the format expected by Net::HTTP.post_form
-  request.set_form_data(params)
+  # Add payload
+  request.body = params.to_json
 
   # Make the request and get the response
   response = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == 'https') do |http|
