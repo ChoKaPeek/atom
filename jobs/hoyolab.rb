@@ -16,6 +16,33 @@ SCHEDULER.cron '0 20 * * *', :first_in => 1 do
   checkin()
 end
 
+get '/chokapeek/redeem' do
+  headers = {
+    "Referer" => "https://hsr.hoyoverse.com/",
+    "Cookie" => "cookie_token=#{ENV['REDEEM_TOKEN']}; " +
+              "account_id=#{ENV['HL_TUID']}; " +
+              "G_ENABLED_IDPS=google; " +
+              "mi18nLang=en-us; " +
+              "_MHYUUID=#{ENV['HL_MHYUUID']}; " +
+              "DEVICEFP=#{ENV['HL_DEVFP']}; " +
+              "DEVICEFP_SEED_ID=#{ENV['HL_DEVFP_SEED_ID']}; " +
+              "DEVICEFP_SEED_TIME=#{ENV['HL_DEVFP_SEED_TIME']};"
+  }
+  # should use
+  # https://api-account-os.hoyoverse.com/account/binding/api/getUserGameRolesOfRegionByCookieToken
+  # to get region game_biz and game_uid
+  redeem = fetch_data("https://sg-hkrpg-api.hoyoverse.com/common/apicdkey/api/webExchangeCdkey?" +
+                       "uid=#{ENV['HSR_UID']}" +
+                       "&region=prod_official_eur" +
+                       #"&game_biz=hk4e_global" +
+                       "&game_biz=hkrpg_global" +
+                       "&cdkey=#{params['code']}" +
+                       "&lang=en", headers)
+  dump(redeem)
+  #{"retcode"=>0, "message"=>"OK", "data"=>{"msg"=>"Redeemed successfully"}}
+  #{"data"=>nil, "message"=>"Redemption code expired.", "retcode"=>-2001}
+  redirect '/chokapeek'
+end
 def hl_path(endpoint, game)
   return "#{game[:base_url]}/#{endpoint}?lang=en-us&act_id=#{game[:act_id]}"
 end
