@@ -1,0 +1,19 @@
+<h1 class="title" data-bind="title"></h1>
+
+<ul>
+  <li data-foreach-item="lives">
+    <div class="live">
+      <img class="image" data-bind-src="item.profile_picture"></span>
+      <div class="content">
+        <div class="row username" data-bind="item.username" />
+        <div class="row subject" data-bind="item.title" />
+      </div>
+      <div class="since">
+        For <span data-bind="item.since" /> minutes
+      </div>
+    </div>
+  </li>
+</ul>
+
+<p class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>
